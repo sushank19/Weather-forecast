@@ -26,31 +26,14 @@ const getweather = (city)=>{
 			sunset.innerHTML = response.sunset
 		} catch (error) {
 			console.error(error);
-		}
-		
+		}		
 	})();
-
 }
 
-submit.addEventListener("click",(e)=>{
-	e.preventDefault()
-	getweather(city.value)
-})
+document.getElementById("submit").addEventListener("submit",(e)=>{
+	e.preventDefault();
+	const city = document.getElementById('city').value;
+	getweather(city);
+});
 
-getweather("Delhi")
-// const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Seattle';
-// const options = {
-	// 	method: 'GET',
-	// 	headers: {
-		// 		'X-RapidAPI-Key': '24f7672761msh7db4cbe2afe347dp1cf9b5jsn8dc08698a275',
-		// 		'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
-		// 	}
-		// };
-		
-		// try {
-			// 	const response = await fetch(url, options);
-			// 	const result = await response.text();
-			// 	console.log(result);
-			// } catch (error) {
-				// 	console.error(error);
-				// }
+getweather("Delhi");
